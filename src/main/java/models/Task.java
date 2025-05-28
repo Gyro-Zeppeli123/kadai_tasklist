@@ -7,9 +7,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(
+        name = "getAllMessages",
+        query = "SELECT m FROM Task AS m ORDER BY m.id DESC"
+    )
+})
 @Table(name = "tasks")
 public class Task {
     @Id
