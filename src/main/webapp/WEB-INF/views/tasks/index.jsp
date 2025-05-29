@@ -21,8 +21,8 @@
         </ul>
         
         <div id="pagination">
-            （全 ${messages_count} 件）<br />
-            <c:forEach var="i" begin="1" end="${((messages_count - 1) / 15) + 1}" step="1">
+            （全 ${tasks_count} 件）<br />
+            <c:forEach var="i" begin="1" end="${((tasks_count - 1) / 15) + 1}" step="1">
                 <c:choose>
                     <c:when test="${i == page}">
                         <c:out value="${i}" />&nbsp;

@@ -33,16 +33,16 @@ public class EditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        // 該当のIDのメッセージ1件のみをデータベースから取得
+        // 該当のIDのタスク1件のみをデータベースから取得
         Task m = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
 
-        // メッセージ情報とセッションIDをリクエストスコープに登録
+        // タスク情報とセッションIDをリクエストスコープに登録
         request.setAttribute("task", m);
         request.setAttribute("_token", request.getSession().getId());
-        // メッセージデータが存在しているときのみ
-        // メッセージIDをセッションスコープに登録
+        // タスクデータが存在しているときのみ
+        // タスクIDをセッションスコープに登録
         
         if(m !=null) {
             request.getSession().setAttribute("task_id", m.getId());
